@@ -14,6 +14,7 @@ function MyMatlab1(InFile1, InFile2, InFile3, InFile4, ...
 [mpc,contingencies] = convert2mpc(InFile3,InFile4,...
                                                    InFile2,InFile1);
 mpc = extend_opf(mpc);
+parpool(1)
 [mpcOPF, pfs] = solveSCOPF(mpc,contingencies);
 create_solution1(mpcOPF,1)
 create_solution2(pfs,contingencies,1)
